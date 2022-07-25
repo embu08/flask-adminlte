@@ -3,14 +3,14 @@
 import os
 import configparser
 
+# Connection to .config
+config = configparser.RawConfigParser()
+config.read('.config')
+conf = dict(config.items('db_config'))
+
 
 class Config(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
-
-    # Connection to .config
-    config = configparser.RawConfigParser()
-    config.read('.config')
-    conf = dict(config.items('db_config'))
 
     # Set up the App SECRET_KEY
     SECRET_KEY = conf['secret_key']
@@ -35,14 +35,9 @@ class ProductionConfig(Config):
     REMEMBER_COOKIE_DURATION = 3600
 
     # MYSQL database
-    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
-        os.getenv('DB_ENGINE', 'mysql'),
-        os.getenv('DB_USERNAME', 'adminlte'),
-        os.getenv('DB_PASS', 'server10pass'),
-        os.getenv('DB_HOST', 'localhost'),
-        os.getenv('DB_PORT', 3306),
-        os.getenv('DB_NAME', 'adminlte')
-    )
+    SQLALCHEMY_DATABASE_URI = '{0}://{1}:{2}@{3}:{4}/{5}'.format(conf['db_engine'], conf['db_username'],
+                                                                 conf['db_pass'], conf['db_host'],
+                                                                 conf['db_port'], conf['db_name'])
 
 
 class DebugConfig(Config):
