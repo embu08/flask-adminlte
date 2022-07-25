@@ -1,0 +1,202 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Add {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} sidebar-mini {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Add a new product</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- main column -->
+                <div class="col-md-12">
+                    <!-- add a new product -->
+                    <div class="card card-warning">
+                        <div class="card-header">
+                            <h3 class="card-title">Please fill in the form below</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form action="/add-product" method="POST">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">UPC</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="upc"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Image (link)</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="main_pic"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Name</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="name"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Brand</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="brand_name"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Model</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="model"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Quantity</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="qty"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Price</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="price"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend col-4">
+                                                <span class="input-group-text col-12">Free shipping over</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="free_shipping"
+                                                   aria-describedby="basic-addon3">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- card-footer -->
+                                <div class="card-footer col-sm-6">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-default float-right">Reset</button>
+                                </div>
+                                <!-- /.card-footer -->
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!--/.col (main) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<!-- jQuery -->
+<script src="/static/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/static/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/static/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/static/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/static/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/assets/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/static/assets/js/demo.js"></script>
+<script>
+  $(function () {
+    bsCustomFileInput.init();
+    $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock javascripts %}

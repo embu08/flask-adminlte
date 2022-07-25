@@ -1,0 +1,8 @@
+[db_config]
+db_engine=mysql+mysqlconnector                                      # Database Driver
+db_name=adminlte                                                    # Database Name
+db_username=user                                                    # Database User
+db_pass=SUPER_SECRET_PASSWORD                                       # Password
+db_host=localhost                                                   # Database HOST, default is localhost
+db_port=3306                                                        # Database port, default = 3306
+secret_key=89ba5567c9d6d0716deac0d5aa716ea7583dbb1aa93fb357         # secret key
