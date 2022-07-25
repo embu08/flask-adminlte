@@ -74,7 +74,7 @@ secret_key=SUPER_SECRET_KEY                                         # secret key
 
 ```bash
 $ # Get the code
-$ git clone ???
+$ git clone https://github.com/embu08/flask-adminlte.git
 $ cd flask-adminlte
 ```
 
